@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafetería · Gestión de Bebidas</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <h1>Cafetería Aroma</h1>
+      <p>Gestión de bebidas · Semana 10 · API REST</p>
+    </header>
+
+    <main class="contenedor">
+      <!-- Formulario de registro -->
+      <section class="panel panel-form">
+        <h2 id="tituloForm">Agregar bebida</h2>
+        <form id="formBebida">
+          <input type="hidden" id="bebidaId" />
+
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Café Americano" required />
+
+          <label for="tamano">Tamaño</label>
+          <select id="tamano">
+            <option value="pequeno">Pequeño</option>
+            <option value="mediano" selected>Mediano</option>
+            <option value="grande">Grande</option>
+          </select>
+
+          <label for="precio">Precio (S/)</label>
+          <input type="number" id="precio" step="0.10" min="0" placeholder="6.50" required />
+
+          <label class="check">
+            <input type="checkbox" id="disponible" checked />
+            Disponible
+          </label>
+
+          <div class="acciones">
+            <button type="submit" class="btn btn-principal" id="btnGuardar">Guardar</button>
+            <button type="button" class="btn btn-secundario" id="btnCancelar" hidden>Cancelar</button>
+          </div>
+        </form>
+        <p id="mensaje" class="mensaje"></p>
+      </section>
+
+      <!-- Tabla de bebidas -->
+      <section class="panel panel-tabla">
+        <h2>Bebidas registradas</h2>
+        <div class="tabla-scroll">
+          <table id="tablaBebidas">
+            <thead>
+              <tr>
+                <th>ID</th><th>Nombre</th><th>Tamaño</th><th>Precio</th><th>Disponible</th><th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+              <!-- se llena con JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
