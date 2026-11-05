@@ -1,0 +1,59 @@
+### API de Cafetería - Pruebas HTTP
+### Requiere la extensión "REST Client" de VS Code.
+### Haz clic en "Send Request" sobre cada bloque.
+
+@host = http://localhost:3000
+
+### 1. GET - Listar todas las bebidas (200 OK)
+GET {{host}}/api/bebidas
+
+### 2. GET - Obtener una bebida por ID (200 OK)
+GET {{host}}/api/bebidas/1
+
+### 3. GET - Bebida que NO existe (404 Not Found)
+GET {{host}}/api/bebidas/999
+
+### 4. POST - Crear una bebida nueva (201 Created)
+POST {{host}}/api/bebidas
+Content-Type: application/json
+
+{
+  "nombre": "Té Verde Matcha",
+  "tamano": "mediano",
+  "precio": 8.00,
+  "disponible": true
+}
+
+### 5. POST - Crear sin nombre (400 Bad Request)
+POST {{host}}/api/bebidas
+Content-Type: application/json
+
+{
+  "precio": 5.00
+}
+
+### 6. PUT - Actualizar la bebida con ID 1 (200 OK)
+PUT {{host}}/api/bebidas/1
+Content-Type: application/json
+
+{
+  "nombre": "Café Americano Grande",
+  "tamano": "grande",
+  "precio": 7.50,
+  "disponible": true
+}
+
+### 7. PUT - Actualizar una bebida que NO existe (404 Not Found)
+PUT {{host}}/api/bebidas/999
+Content-Type: application/json
+
+{
+  "nombre": "Inexistente",
+  "precio": 5.00
+}
+
+### 8. DELETE - Eliminar la bebida con ID 5 (200 OK)
+DELETE {{host}}/api/bebidas/5
+
+### 9. DELETE - Eliminar una bebida que NO existe (404 Not Found)
+DELETE {{host}}/api/bebidas/999
